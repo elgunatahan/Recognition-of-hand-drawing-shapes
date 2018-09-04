@@ -111,11 +111,11 @@ model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['a
 hist = model.fit(X_train, Y_train, batch_size=batch_size, epochs=nb_epoch,
                   verbose=1, validation_split=0.2)
 
-model.save('my_model.h5')
-model_json = model.to_json() #
+model.save('my_model.h5') #saving model with weights
+model_json = model.to_json() # we can save model in json format
 with open("model.json", "w") as json_file:
     json_file.write(model_json)
-model.save_weights("model_weights.h5")
+model.save_weights("model_weights.h5") # but if we gonna save model in json model, we have to also save model weights
 score = model.evaluate(X_test, Y_test, verbose=0)
 
 print('Test score:', score[0])
