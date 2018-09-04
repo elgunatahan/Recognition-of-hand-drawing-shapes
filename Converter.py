@@ -85,7 +85,7 @@ else:
     K.set_image_data_format('channels_last')
 
 try:
-    net_model = load_model("my_model_2.h5")
+    net_model = load_model("my_model.h5")
 except ValueError as err:
     print('''Input file specified ({}) only holds the weights, and not the model defenition.
     Save the model using mode.save(filename.h5) which will contain the network architecture
@@ -93,7 +93,7 @@ except ValueError as err:
     If the model is saved using model.save_weights(filename.h5), the model architecture is 
     expected to be saved separately in a json format and loaded prior to loading the weights.
     Check the keras documentation for more details (https://keras.io/getting-started/faq/)'''
-          .format("my_model_2.h5"))
+          .format("my_model.h5"))
     raise err
 num_output = args.num_outputs
 pred = [None]*num_output
